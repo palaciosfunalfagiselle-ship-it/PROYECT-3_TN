@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Giselle Guadalupe Palacios</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            font-size: 80px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .header-info h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header-info p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            padding-right: 30px;
+            border-right: 2px solid #f0f0f0;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .section-title i {
+            font-size: 1.2em;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #f8f9ff;
+            transform: translateX(5px);
+        }
+
+        .info-item i {
+            color: #764ba2;
+            margin-top: 3px;
+            min-width: 20px;
+        }
+
+        .info-item-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .item-title {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .item-date {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .hobbies-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hobby-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 20px;
+            color: #667eea;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hobby-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-link:hover {
+            color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 2px solid #f0f0f0;
+                padding-right: 0;
+                padding-bottom: 30px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-info h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="photo-container">
+                    <!-- Reemplaza 'foto.jpg' con el nombre de tu imagen -->
+                    <img src="foto.jpg" alt="Giselle Palacios" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display:none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <h1>Giselle Guadalupe Palacios</h1>
+                    <p>Vendedora | Secretariado Jurídico</p>
+                    <button class="download-btn" onclick="window.open('cv-giselle-palacios.pdf', '_blank')">
+                        <i class="fas fa-download"></i>
+                        Descargar CV en PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-address-card"></i>
+                        Contacto
+                    </h2>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Golfo S.Carlos 9730<br>CP 3300, Posadas, Misiones</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">WhatsApp</div>
+                            <a href="https://wa.me/543764373016" class="whatsapp-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                3764373016
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-language"></i>
+                        Idiomas
+                    </h2>
+                    <div class="info-item">
+                        <i class="fas fa-circle"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Español</div>
+                            <div class="info-value">Nativo</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-circle"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Portugués</div>
+                            <div class="info-value">Intermedio</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-circle"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Inglés</div>
+                            <div class="info-value">Intermedio</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-star"></i>
+                        Habilidades
+                    </h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Proactivo</div>
+                        <div class="skill-item">Dinámico</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-clock"></i>
+                        Disponibilidad
+                    </h2>
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Horario</div>
+                            <div class="info-value">Lunes a Viernes<br>7:00 a 12:00 hs</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-motorcycle"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Transporte</div>
+                            <div class="info-value">Propio</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div class="info-item-content">
+                            <div class="info-label">Radicación</div>
+                            <div class="info-value">Por el momento no disponible</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-heart"></i>
+                        Hobbies
+                    </h2>
+                    <div class="hobbies-grid">
+                        <div class="hobby-item">
+                            <i class="fas fa-music"></i>
+                            Música
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-dumbbell"></i>
+                            Crossfit
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-plane"></i>
+                            Viajar
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-briefcase"></i>
+                        Experiencia Laboral
+                    </h2>
+                    <div class="experience-item">
+                        <div class="item-title">Vendedora en Comercio</div>
+                        <div class="item-subtitle">Cargo Actual</div>
+                        <div class="item-date">Desde 2023 - Presente</div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-title">Vendedora</div>
+                        <div class="item-subtitle">Boutique Bendditas - Shopping</div>
+                        <div class="item-date">2022</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Educación
+                    </h2>
+                    <div class="education-item">
+                        <div class="item-title">Secretariado Jurídico</div>
+                        <div class="item-subtitle">Formación Principal</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-certificate"></i>
+                        Capacitaciones Adicionales
+                    </h2>
+                    <div class="education-item">
+                        <div class="item-title">Master en Uñas</div>
+                        <div class="item-subtitle">Formación Especializada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
